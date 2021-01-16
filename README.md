@@ -5,8 +5,8 @@
 ➢ Title: Managing personal finance using Blockchain <br>
 ➢ Dapp name: LoanPurse-Dapp <br>
 ➢ Clients: Lenders, Borrowers(Requestors) <br>
-<p>
-<b><u> Problem Statement: <br>
+<p align="justify">
+ <b><u> Problem Statement: </u></b><br>
 • Financial markets are quite cumbersome for many of us and especially for the
 people who are in dire need of their finance but have a hard time arranging it. Banks
 and other middle entities make the process tedious, time-consuming and lending
