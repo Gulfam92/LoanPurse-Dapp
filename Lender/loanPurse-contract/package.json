@@ -1,0 +1,17 @@
+{
+  "name": "loanPurse-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "devDependencies": {
+    "truffle-hdwallet-provider": "^1.0.17"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "description": ""
+}

@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Loan Purse App</title>
+  <link href='https://fonts.googleapis.com/css?family=Lobster|Open+Sans:400,400italic,300italic,300|Raleway:300,400,600' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/toastr.min.css">
+  <link rel="stylesheet" type="text/css" href="css/animate.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+  
+  <style>
+  body, html {
+    height: 30%;
+    background-image: url("img/loan_image6.jpg");
+     /* The image used */
+
+    /* Full height */
+    height: 30%;
+
+    /* Center and scale the image nicely */
+    background-position-x: center;
+    background-position: relative;
+    background-repeat: no-repeat;
+    background-size:100%;
+  }
+  
+  .left-req {
+    float: left;
+    width: 30%;
+    height: 600px;
+    margin-left: 15px;
+    
+  }
+  
+  .right-len {
+    float: left;
+    width: 30%;
+    height: 600px;
+    margin-left: 35%;
+  
+  }
+  
+  .middle {
+    width: 30%; 
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  .h2 {
+    
+    text-align: center;
+  }
+
+  .footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   padding: 10px;
+   background-color: DarkSalmon;
+   color: black;
+   text-align: center;
+  }
+  
+  a:link {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+  }
+
+  a:visited {
+  color: pink;
+  background-color: transparent;
+  text-decoration: none;
+  }
+
+  a:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
+  }
+
+  .button {
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+  </style>
+</head>
+  
+  <body>
+  <h1 align = "center", style="color:black; font-family: 'Courgette', cursive;"><b>LoanPurse Dapp</h1>
+  
+  <div>
+   
+    <!-- <div class="left-req form-control" style="background-color:#5DADE2; display: none;" >
+    
+    
+      <h2 align = "center"><u><b>Requestor</u></h2>
+      <p style="font-size: 20px;"><b>Send a loan request to lender:</p>
+
+        
+          <form>
+                <label style="font-size: 18px; margin-left: 5px;">Enter Loan Amount:</label><br>
+                <input type="number" min="1" id="loan_amt" placeholder="Enter Loan Amount (ETH)" style="margin-left: 5px; width: 220px;" >
+                <button type="button" class="btn-requestLoan button btn btn-primary btn-action align-center" style= "margin-inline-start: 10px; width: auto;">Submit Loan Request</button> <br> <br>
+
+                <label style="font-size: 18px; margin-left: 5px;">Calculate Repay Amount:</label><br>
+                <input type="text" id="calc_repay" placeholder="Requestor Address" style="margin-left: 5px; width: 220px;"><br>
+                <input type="number" min="1" id="cal_LoanAmt" placeholder="Enter Loan Amount (ETH)" style="margin-left: 5px; width: 220px;">
+                <button class="btn-calRepayAmt btn btn-primary btn-action align-center" type="button" style= "margin-inline-start: 10px; width: auto;" >Calculate Repay Amount</button> <br> <br>
+                <label style="font-size: 18px; margin-left: 5px;" id="viewRepay">Calculated repay amount shown here..</label><br><br>
+                
+                <label style="font-size: 18px; margin-left: 5px;">Repay Loan:</label><br>
+                <input type="text" id="loan_repay" placeholder="Lender Address" style="margin-left: 5px; width: 220px;"><br>
+                <input type="number" min="1" id="loan_repayAmt"  placeholder="Enter Repay Amount (ETH)" style="margin-left: 5px; width: 220px;"><br>
+                <input type="number" min="1" id="message_value1" placeholder="Enter Deposit Amount (ETH)" style="margin-left: 5px; width: 220px;">
+                <button class="btn-repayLoan btn btn-primary btn-action align-center" type="button" style= "margin-inline-start: 10px; width: auto;">Repay Loan</button> <br> <br>
+          
+          </form>
+          
+      
+    </div> -->
+    
+    <div>
+      <div style="text-align:center" 
+        <p><b style="color:black; font-size: 20px">Current Account: </b><span id="current_account"></span> <br>  
+        <b style="color:black; font-size: 20px"> Balance(ETH):</b> <span id='balance'> </span></p><br>
+        
+      </div>
+      
+    </div>
+    
+    <div class="right-len form-control" style="background-color:#eaa;  display: none;">
+      <h2 align = "center"><u><b>Lender</u></h2>
+      <p style="font-size: 20px;"><b>Check and approve the loan request from borrower:</p>
+
+        <form>
+          <label style="font-size: 18px; margin-left: 5px;">Approve Loan Request:</label><br>
+          <input type="text"  id="approve_loan" placeholder="Loan Requestor Address" style="margin-left: 5px; width: 220px;"><br>
+          <input type="number" min="1" id="message_value" placeholder="Enter Deposit Amount (ETH)" style="margin-left: 5px; width: 220px;">
+          <button  class="btn-approveLoan btn btn-primary btn-action align-center" type="button" style= "margin-inline-start: 10px; width: auto;">Approve Loan</button> <br> <br>
+          
+          
+          <label style="font-size: 18px; margin-left: 5px;">Reject Loan Request:</label><br>
+          <input type="text"  id="reject_loan" placeholder="Loan Requestor Address" style="margin-left: 5px; width: 220px;">
+          <button  class="btn-rejectLoan btn btn-primary btn-action align-center" type="button" style= "margin-inline-start: 10px; width: auto;">Reject Loan</button> <br> <br>
+          
+          <label style="font-size: 18px; margin-left: 5px;">View Credit History of Requestor:</label><br>
+          <input type="text"  id="credit_history" placeholder="Loan Requestor Address" style="margin-left: 5px; width: 220px;">
+          <button class="btn-checkCreditHistory btn btn-primary btn-action align-center" type="button" style= "margin-inline-start: 10px; width: auto;">View Credit History</button> <br><br>
+          <label style="font-size: 18px; margin-left: 5px;" id="showCredit">Credit History shown here..</label><br><br>
+          
+        </form>
+       
+    </div>
+
+  </div>
+
+  <br><br><br>
+
+    <div class="footer">
+      <p>Credit: ABC<br>
+      <a href="mailto:abc@example.com">abc@example.com</a></p>
+    </div>  
+
+  <script src="js/dist/jquery.min.js"></script>
+  <script src="js/dist/bootstrap.min.js"></script>
+  <script src="js/dist/jquery.countdown.min.js"></script>
+  <script src="js/dist/wow.js"></script>
+  <script src="js/dist/custom.js"></script>
+  <script src="js/dist/bootstrap.min.js"></script>
+  <script src="js/dist/toastr.min.js"></script>
+  <script src="js/dist/web3.min.js"></script>
+  <script src="js/dist/truffle-contract.js"></script>
+  <script src="js/app.js"></script>
+  
+</body>
+</html>
+  
