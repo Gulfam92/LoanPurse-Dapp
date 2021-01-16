@@ -79,21 +79,14 @@ contract  LoanPurse {
   
             emit LoanRejected();
         }
-        
-        // function to get the loan/creditHistory details of the borrower account address
-        // function creditHistory(address requestorAddress) view public returns(uint, uint, string memory) {
-        //     Loan memory loanDetails = loans[requestorAddress];
-        //     return (loanDetails.id, (loanDetails.loanAmount / 1000000000000000000), loanDetails.loanStatus);
-        // }
 
-         function creditHistory(address requestorAddress) public returns(uint , uint) {
+        // Check Credit History details of the requestors
+        function creditHistory(address requestorAddress) public returns(uint , uint) {
             Loan memory loanDetails = loans[requestorAddress];
             uint loanCount = loanDetails.id;
             uint loanHist = (loanDetails.loanAmount / 1000000000000000000);
-            // string memory loanStats = loanDetails.loanStatus;
-            emit loanCreditHistory(loanCount , loanHist);
-            // return (loanCount = loanDetails.id, loanAmt = (loanDetails.loanAmount / 1000000000000000000));
             
+            emit loanCreditHistory(loanCount , loanHist);
             return (loanCount , loanHist );
          }
         
@@ -107,11 +100,12 @@ contract  LoanPurse {
         function calculateRepay(address requestorAddress, uint requestedLoanAmount) notLender public returns (uint){
             // Calculating repay amount based on predefined interest rate on principal amount(loanAmount)
             calRepayAmount = (((amount[requestorAddress] *10*2)/100) + requestedLoanAmount * 1000000000000000000)/ 1000000000000000000 ;
+            
             emit myCalc(calRepayAmount);
             return calRepayAmount;
         }
         
-        
+        // function to repay the loan amount by the requestors to Lender's account
         function repayLoan(address payable lenderAddress, uint repayAmt) notLender public payable {
             require(msg.sender.balance >= repayAmt);
             require(msg.value > repayAmt+10000000000000000000, "Insufficient Balance.");

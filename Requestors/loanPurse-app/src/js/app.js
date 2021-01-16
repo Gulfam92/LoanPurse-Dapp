@@ -9,7 +9,8 @@ App = {
   loanCount:0,
   loanAmount: 0,
   // network_id: 5777,
-  address: '0x2f0Eb24ab1B58E0804Cd03C7EC8215B32d82df72',
+  //Enter deployed smart contract address below
+  address: '',
 
 
   init: function() {
@@ -216,6 +217,7 @@ App = {
     toastr.info(text, "", {iconClass: "toast-info notification" + String(type),
       });
     },
+    // Update ABI based on deployed smart contract
     abi: [
       {
         "constant": true,

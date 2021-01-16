@@ -9,6 +9,7 @@ App = {
   loanCount:0,
   loanAmount: 0,
   // network_id: 5777,
+  // Enter Infura(Cloud) url below where the Dapp is deployed
   url: '',
 
 
