@@ -30,3 +30,9 @@ third party, and it would help them save their finance.<br>
 transactions are secure. This Dapp will solve several similar issues and would be a
 boon to many in this pandemic and otherwise.
  </p>
+ <br><br>
+ #### Implementation details: <br>
+• Implemented an end-to-end blockchain decentralized loan application as a P2P model. <br>
+• Developed smart contracts using HTML/CSS and JavaScript on the client-side and Solidity and Node.js on the server-side. <br>
+
+(Tech stack: Solidity, Ethereum, JavaScript, Node.js, HTML, CSS, Web3 API, Infura, Ganache, Ropsten)
